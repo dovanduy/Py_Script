@@ -143,10 +143,10 @@
 # except AssertionError, args:
 # 	print '%s: %s' % (args.__class__.__name__, args)
 
-	# try:
-	# 	print
-	# except AttributeError:
-	# 	print
+# try:
+# 	print
+# except AttributeError:
+# 	print
 "------------------------------------------------"
 # try:
 # 	s = input("")
@@ -168,20 +168,16 @@
 # a = add(1,2)
 # print a
 "----------------------------------------------"
-# from random import randint
-# def odd(n):
-# 	return n % 2
-# allnums = []
-# for each in range(9):
-# 	allnums.append(randint(1, 99))
-# 	print allnums
-# 	print filter(odd, allnums)   #每个 filter 返回的非零（true)值元素添加到一个列表中
-"----------------------------------------------------"
-def func(x,y):
-	return x + y
-# a = func(func(1,2),3)
-# print a
-a = reduce(func, [1, 2, 3])
-print a
+from random import randint
 
-"--------------------------------"
+
+def odd(n):
+    return n % 2
+
+
+allnums = []
+for each in range(9):
+    allnums.append(6)
+
+    filter(odd, allnums)  # 每个 filter 返回的非零（true)值元素添加到一个列表中
+    print allnums

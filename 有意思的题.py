@@ -39,7 +39,13 @@ def fibs(num):
     return result
 
 
+def func(x, y):
+    return x + y
+
+
 if __name__ == '__main__':
     print prime(100)
     pyramid(10, 20)
     print fibs(10)
+    # 计算可迭代参数中的值
+    print reduce(func, [1, 2, 3, 4])
