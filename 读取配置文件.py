@@ -36,3 +36,12 @@ if __name__ == '__main__':
     read_config = ReadConfig()
     print read_config.get_config('HTTP', 'base_url')
     print read_config.get_config('EMAIL', 'mail_host')
+    print '\n'
+    config = dict()
+    config['host'] = read_config.get_config('DATABASE', 'host')
+    config['port'] = read_config.get_config('DATABASE', 'port')
+    config['user'] = read_config.get_config('DATABASE', 'user')
+    config['passwd'] = read_config.get_config('DATABASE', 'passwd')
+    config['db'] = read_config.get_config('DATABASE', 'db')
+    config['charset'] = read_config.get_config('DATABASE', 'charset')
+    print config
