@@ -25,6 +25,7 @@ def get_py(res):
     html = etree.HTML(res['text'])
     # 不包含特定元素的，这里排除为隐藏的元素
     result = html.xpath('//*[@id="mainBox"]/main/div[2]/div[not(@style="display: none;")]/h4/a')
+    print result
     for li in result:
         mycsdn = {}
         title = li.xpath('./text()')
@@ -96,13 +97,13 @@ def main():
         # python
         p.submit(get_index, uri + '6810218', 'python').add_done_callback(get_py)
         # RF+SE
-        p.submit(get_index, uri + '6810219', 'rfs').add_done_callback(get_py)
+        # p.submit(get_index, uri + '6810219', 'rfs').add_done_callback(get_py)
         # # JMETER
-        p.submit(get_index, uri + '6858016', 'jmeter').add_done_callback(get_py)
+        # p.submit(get_index, uri + '6858016', 'jmeter').add_done_callback(get_py)
         # # 接口测试
-        p.submit(get_index, uri + '6966010', 'interface').add_done_callback(get_py)
+        # p.submit(get_index, uri + '6966010', 'interface').add_done_callback(get_py)
         # # 功能测试
-        p.submit(get_index, uri + '6560600', 'functions').add_done_callback(get_py)
+        # p.submit(get_index, uri + '6560600', 'functions').add_done_callback(get_py)
 
 
 if __name__ == '__main__':
@@ -110,7 +111,6 @@ if __name__ == '__main__':
     # print all_title
     for blog in all_title:
         for k in blog:
-            # print
             if k == 'python':
                 print blog[k], blog['urls']
             elif k == 'rfs':

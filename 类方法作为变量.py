@@ -11,7 +11,7 @@ class Father(object):
         self.age = age
 
     def __call__(self, args):
-        print args
+        print 'call=>', args
 
 
 class Son(object):

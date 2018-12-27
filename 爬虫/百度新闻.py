@@ -8,14 +8,14 @@ from pyquery import PyQuery
 # https://www.thepaper.cn/load_index.jsp?&pageidx=2&lastTime=1542790579509
 # 百度新闻
 response = requests.get('https://news.baidu.com/guonei')
-print response.text
+# print response.text
 html = etree.HTML(response.text)
 
 # 最新新闻
 result = html.xpath('//ul[contains(@class,"ulist")]//a')
 print len(result)
 for li in result:
-    print li.xpath('./text()'),
+    print li.xpath('./text()')[0].encode('utf8'),
     print li.xpath('./@href')
 # newurl = result[0].xpath('.//a/@href')[0]
 # print newurl
@@ -23,8 +23,8 @@ for li in result:
 
 
 # 这个只适合解析html
-pq = PyQuery(response.content)
-
-result = pq('a').eq(0).attr('href')
-
-print result
+pq = PyQuery(url='https://news.baidu.com/guonei')
+lista = pq('.ulist a')
+print len(lista)
+for a in lista.items():
+    print a.text(), a.attr('href')
