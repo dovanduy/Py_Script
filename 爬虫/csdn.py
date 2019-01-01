@@ -25,6 +25,7 @@ def get_py(res):
     html = etree.HTML(res['text'])
     # 不包含特定元素的，这里排除为隐藏的元素
     result = html.xpath('//*[@id="mainBox"]/main/div[2]/div[not(@style="display: none;")]/h4/a')
+    print result
     for li in result:
         mycsdn = {}
         title = li.xpath('./text()')
@@ -127,7 +128,6 @@ if __name__ == '__main__':
     # print all_title
     for blog in all_title:
         for k in blog:
-            # print
             if k == 'python':
                 pass
                 # print blog[k], blog['urls']
