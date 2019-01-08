@@ -35,6 +35,23 @@ def get_py(res):
             all_title.append(mycsdn)
 
 
+def get_info(res):
+    res = res.result()
+    print res
+    # print res['text']
+    html = etree.HTML(res['text'])
+    # 不包含特定元素的，这里排除为隐藏的元素；div的列表
+    article = html.xpath('//*[@id="mainBox"]/main/div[2]/div[not(@style="display: none;")]/h4/a')
+    content = html.xpath('//*[@id="mainBox"]/main/div[2]/div[not(@style="display: none;")]/p/a')
+    for i in range(len(article)):
+        mycsdn = {}
+        mycsdn[res['name']] = article[i].xpath('./text()')[1].strip()
+        mycsdn['urls'] = article[i].xpath('./@href')[0]
+        mycsdn['cont'] = content[i].xpath('./text()')[0].strip()
+        all_title.append(mycsdn)
+    # print all_title
+
+
 def get_rfs(res):
     res = res.result()
     html = etree.HTML(res)
@@ -95,7 +112,7 @@ def main():
     with ThreadPoolExecutor(10) as p:
         uri = "https://blog.csdn.net/cz9025/article/category/"
         # python
-        p.submit(get_index, uri + '6810218', 'python').add_done_callback(get_py)
+        p.submit(get_index, uri + '6810218', 'python').add_done_callback(get_info)
         # RF+SE
         # p.submit(get_index, uri + '6810219', 'rfs').add_done_callback(get_py)
         # # JMETER
@@ -112,12 +129,13 @@ if __name__ == '__main__':
     for blog in all_title:
         for k in blog:
             if k == 'python':
-                print blog[k], blog['urls']
-            elif k == 'rfs':
-                print blog[k], blog['urls']
-            elif k == 'jmeter':
-                print blog[k], blog['urls']
-            elif k == 'interface':
-                print blog[k], blog['urls']
-            elif k == 'functions':
-                print blog[k], blog['urls']
+                pass
+                # print blog[k], blog['urls']
+            # elif k == 'rfs':
+            #     print blog[k], blog['urls']
+            # elif k == 'jmeter':
+            #     print blog[k], blog['urls']
+            # elif k == 'interface':
+            #     print blog[k], blog['urls']
+            # elif k == 'functions':
+            #     print blog[k], blog['urls']
