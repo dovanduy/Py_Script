@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2019/1/9 19:05
-# @Author  : cz9025
-# @PC: chengz
-
-
 # 登录、新增员工、客户、订单
 # 调用类
 from selenium import webdriver
@@ -42,21 +37,31 @@ inputs = driver.find_elements_by_xpath("//input[@class='el-input__inner']")
 # 姓名
 inputs[0].send_keys("xixi666")
 inputs[1].send_keys("xixi6")
-inputs[2].send_keys("17666666666")
+inputs[2].send_keys("16666666666")
 inputs[3].send_keys("xixi123")
 # 性别
 driver.find_element_by_xpath("//div[@class='el-form-item__content']/label[@role='radio'][2]/span[1]").click()
-# 部门 //span[text()='泉后集团']
+# 部门
 driver.find_element_by_xpath(u"//button/span[text()='选择部门']").click()
+time.sleep(1)
 driver.find_element_by_xpath(u"//span[text()='泉后集团']").click()
-# driver.find_element_by_xpath(u"//span[text()='战略发展部']").click()
+time.sleep(1)
+driver.find_element_by_xpath(u"//span[text()='战略发展部']/following-sibling::button").click()
 
 # 职位
 inputs[4].send_keys(u"测试")
+time.sleep(1)
 # 职务
-inputs[5].click()
+driver.find_element_by_xpath("//main[@id='gMain']/div[2]/div/form/fieldset[2]/div[3]/div/div/div/span/span").click()
+time.sleep(1)
+driver.find_element_by_xpath(u"//div[@class='el-scrollbar']/div/ul/li[1]/span[text()='班长']").click()
 # 角色名称
-inputs[6].click()
+driver.find_element_by_xpath("//main[@id='gMain']/div[2]/div/form/fieldset[3]/div/div/div/div[2]/span/span").click()
+time.sleep(1)
+driver.find_element_by_xpath(u"//div[@class='el-scrollbar']/div/ul/li[1]/span[text()='订单']").click()
 
 # 保存
-driver.find_element_by_xpath("//button/span[text()='保存']").click()
+driver.find_element_by_xpath(u"//button/span[text()='保存']").click()
+
+time.sleep(3)
+driver.quit()
