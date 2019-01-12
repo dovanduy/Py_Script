@@ -1,55 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# # 三个数字比大小
-# print "请输入三个数字：\n"
-# x = raw_input()
-# y = raw_input()
-# z = raw_input()
-#
-# max = x
-# if y>max:
-# 	max = y
-# if z>max:
-# 	max = z
-# print max
-
-
-# #输入一个年份，判断是否为闰年
-# print "请输入一个年份：\n"
-# year = input()
-# if (year%400==0 or year%4==0 and year%100!=0):
-# 	print year
-# else:
-# 	print "flase"
-
-# # 输入一个分数判定成绩等级
-# s = input()
-# if s > 100:
-# 	g = '牛逼'
-# elif s>=90:
-# 	g = 'A'
-# elif s>=80:
-# 	g = 'B'
-# elif s>=60:
-# 	g= 'C'
-# else:
-# 	g = '不及格'
-# print g
-
-# # 猜数游戏。预设一个0~9之间的整数
-# from random import  randint
-# num = randint(1,10)
-# fige = False
-# while fige ==  False:
-# 	print '请输入一个数:\n'
-# 	s = input()
-# 	if s==num:
-# 		print "your win!!!"
-# 		fige = True
-# 	if s>num:
-# 		print "too big"
-# 	if s<num:
-# 		print "too small"
 
 # 判断输入一个数字是否为素数
 # import math
@@ -132,9 +82,6 @@
 # print a
 
 
-
-
-
 # class thing(object):
 # 	def __init__(self):
 # 		self.num = 0
@@ -168,37 +115,6 @@
 # 		print "\n"
 
 
-# day=9
-# x=1
-# while day>0:
-# 	x=(x+1)*2
-# 	day-=1
-# print "total =",x
-
-
-
-# 向末尾添加l2
-# i = 0
-# while i< len(l2):
-# 	l1.append(l2[i])
-# 	i += 1
-# print l1
-
-# l1.extend(l2)
-# print l1
-
-# #删除列表里面的重复值，只保留一个
-# l = [1,2,3,1,1,2,4]
-# x = l.count(2)
-# i = 0
-# while i<x:
-# 	l.remove(2)
-# 	i+=1
-# print l
-#
-# import requests
-# s = requests.get('https://s.taobao.com/list?spm=a217f.7278617.a214d5w-static.3.qKuWZW&style=grid&seller_type=taobao&oeid=3587000&oeid=4561000&cps=yes&cat=51108009')
-# print s.text
 # s = "dfgdsg广东省佛山分公司的dsgdfg"
 # w = open('a.txt','w')
 # w.write(s)
@@ -224,17 +140,6 @@
 # 		urllib.urlretrieve(url,str(i)+ '.jpg')
 # 	i+=1
 #
-
-# #在定义的函数内使用全局变量，需要加上global
-# def f(time):
-# 	global c
-# 	c+=1
-# 	print c
-# 	print time
-# c = 0
-# f(4)
-# print "-------------"
-# f(c+2)
 
 # def delete(f):
 # 	i = 0
@@ -342,13 +247,13 @@
 # print chr(97)    #数字转字符
 # -----------------------
 
-#----------------------
+# ----------------------
 # x, y = 4, 5
 # small = x if x < y else y
 # print small
 # ---------------
 
-#assert断言 当后面的条件为假时程序崩溃，并抛出AssertionError异常
+# assert断言 当后面的条件为假时程序崩溃，并抛出AssertionError异常
 # assert 3>4
 
 # a = 'dsa'
@@ -368,8 +273,8 @@ s = "aa"
 # print sub.rfind("aa")
 # print sub.count("a")
 i = 0
-pos = -2  #就是要查找的字串的长度
+pos = -2  # 就是要查找的字串的长度
 while i < sub.count("aa"):
-	pos = sub.find(s, pos+len(s))
-	print pos
-	i += 1
+    pos = sub.find(s, pos + len(s))
+    print pos
+    i += 1
