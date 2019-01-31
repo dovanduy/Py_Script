@@ -129,8 +129,8 @@ if __name__ == '__main__':
     for blog in all_title:
         for k in blog:
             if k == 'python':
-                pass
-                # print blog[k], blog['urls']
+                # pass
+                print blog[k], blog['urls']
             # elif k == 'rfs':
             #     print blog[k], blog['urls']
             # elif k == 'jmeter':

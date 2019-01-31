@@ -5,6 +5,9 @@ from selenium import webdriver
 import time
 
 # 打开浏览器
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
+
 driver = webdriver.Chrome()
 # 进入ERP系统登录页
 driver.get("http://t.oa.quanhoo.com")
@@ -21,10 +24,20 @@ driver.find_element_by_css_selector("[class='el-button el-button--primary']").cl
 time.sleep(2)
 # 点击CRM
 driver.find_element_by_xpath("//span[text()='CRM']").click()
-time.sleep(2)
+time.sleep(1)
+# driver.execute_script("var q=document.getElementsByTagName('aside')[0];q.setAttribute('style','margin-top:-200px');")
+ActionChains(driver).move_to_element(driver.find_element_by_xpath("//span[text()='后台管理']")).perform()
+# driver.execute_script("document.getElementsByTagName('aside')[0].scrollTop=1000")
+time.sleep(1)
 # 点击后台管理
 driver.find_element_by_xpath(u"//span[text()='后台管理']").click()
 time.sleep(2)
+# driver.execute_script('var q=document.documentElement.scrollTop=10000')
+
+# driver.find_element_by_xpath(u"//span[text()='部门与员工']").send_keys(Keys.DOWN)
+ActionChains(driver).move_to_element(driver.find_element_by_xpath("//span[text()='投诉建议']")).perform()
+time.sleep(1)
+
 # 点击部门与员工
 driver.find_element_by_xpath(u"//span[text()='部门与员工']").click()
 time.sleep(2)

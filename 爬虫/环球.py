@@ -3,7 +3,7 @@
 # @Author  : cz9025
 # @File    : 环球.py
 # @Software: PyCharm
-
+import requests
 from pyquery import PyQuery
 
 pq = PyQuery("http://world.huanqiu.com", encoding='utf-8')
@@ -20,3 +20,7 @@ for i in li.items():
     if img:
         print txt, href
         print img
+
+
+response = requests.get(url="http://world.huanqiu.com")
+print response.encoding
