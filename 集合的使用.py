@@ -5,7 +5,7 @@
 # @Software: PyCharm
 
 """集合最好的应用是去重。集合没有特殊的表示方法，而是通过一个set函数转换成集合"""
-a = set('qqqqwertyuiop')
+a = set('qwerty')
 b = set("poiu")
 # 判断集合的所有元素是否都包含在指定集合中   是否为子集
 print a.issubset(b), b.issubset(a)
