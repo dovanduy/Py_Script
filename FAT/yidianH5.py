@@ -25,20 +25,23 @@ def testScript():
     h5Driver.d(text="发现").click()
     h5Driver.wait(1)
     h5Driver.d(text="购物").click()
-    h5Driver.wait(5)
+    h5Driver.wait(15)
 
     h5Driver.initDriver()
     url = "http://h5.baike.qq.com/mobile/enter.html"
     h5Driver.navigateToPage(url)
-    h5Driver.wait(3)
+    h5Driver.wait(15)
 
     h5Driver.wait(1)
     pa = h5Driver.getElementByXpath('/html/body/div[1]/div/div[3]/p')
     print 'getElementByXpath', pa
+    h5Driver.wait(1)
     pa = h5Driver.getElementTextByXpath('//p[@class="disease-all"]')
     print 'getElementTextByXpath', pa
+    h5Driver.wait(1)
     # 全部疾病
     h5Driver.clickElementByXpath('//p[@class="disease-all"]')
+    h5Driver.wait(1)
     h5Driver.clickFirstElementByText('白内障')
     print "进入白内障"
     h5Driver.returnLastPage()

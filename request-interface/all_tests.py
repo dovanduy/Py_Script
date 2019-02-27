@@ -4,25 +4,12 @@ import time
 import os
 import HTMLTestRunner
 
-
-def create_suite(ls):
-    unit = unittest.TestSuite()
-    discover = unittest.defaultTestLoader.discover(ls, 'test_*.py')
-    for suites in discover:
-        for test_case in suites:
-            unit.addTest(test_case)
-
-    return unit
-
-
 ls = 'test-case'
 
-all_suite = create_suite(ls)
-datetime = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+all_suite = unittest.defaultTestLoader.discover(ls, 'test_*.py')
+getTime = time.strftime('%Y%m%d%H%M%S')
 
-# filename = "E:\\result\\result_baidu_" + datetime + ".html"
-filename = "E:\\result\\result_weather.html"
-fp = file(filename, 'wb')
+fp = open("%s/result_%s.html" % (os.getcwd(), getTime), "wb")
 
 runner = HTMLTestRunner.HTMLTestRunner(
     stream=fp,

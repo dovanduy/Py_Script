@@ -66,3 +66,45 @@ print my_sum(1, 2, 3, 4, 5)
 print my_sum(1, 2, 3, 4, 5, 'a')  # 有其他字符  为0
 
 print my_sum()
+
+# ======================带认证效果的装饰器============================
+user_dict = {'username': None, 'passwd': None}
+
+
+def auth_func(func):
+    def warp(*args, **kwargs):
+        # 如果有用户信息的话直接返回
+        if user_dict['username'] and user_dict['passwd']:
+            return func(*args, **kwargs)
+        username = raw_input("用户名:").strip()
+        passwd = raw_input("密码:").strip()
+        if username == "sb" and passwd == "123":
+            user_dict['username'] = username
+            user_dict['passwd'] = passwd
+            return func(*args, **kwargs)
+        else:
+            print "用户名或密码错误!"
+
+    return warp
+
+
+@auth_func
+def index():
+    print "欢迎来到主页"
+
+
+@auth_func
+def home(name):
+    print "欢迎回家%s" % name
+
+
+@auth_func
+def shopping():
+    print "go shopping......"
+
+
+index()
+home('cz9025')
+shopping()
+
+# =================结束=========================

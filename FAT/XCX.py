@@ -3,7 +3,7 @@
 # @Author  : chengz
 # @File    : XCX.py
 # @Software: PyCharm
-
+# 官方地址：https://github.com/Tencent/FAutoTest
 
 from fastAutoTest.core.wx.wxEngine import WxDriver
 import os

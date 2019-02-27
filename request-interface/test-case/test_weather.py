@@ -3,16 +3,17 @@ import requests
 import unittest
 
 
+
+
 class Weather(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
+    def setUp(self):
         # 101281601
-        cls.url = 'http://t.weather.sojson.com/api/weather/city/101280601'
-        cls.headers = {'Content-Type': 'application/json;charset=UTF-8'}
+        self.url = 'http://t.weather.sojson.com/api/weather/city/101280601'
+        self.headers = {'Content-Type': 'application/json;charset=UTF-8'}
 
     def test_get_beijing(self):
         u"""查询天气"""
-        response = requests.get(self.url, self.headers)
+        response = requests.get(url=self.url, headers=self.headers)
         # print response.encoding
         result = response.json()
         if result['status'] == 200:
@@ -33,10 +34,6 @@ class Weather(unittest.TestCase):
                 print low, '~', high
                 print types, fx, fl
                 print notice, '\n'
-
-    @classmethod
-    def tearDownClass(cls):
-        pass
 
 
 if __name__ == '__main__':

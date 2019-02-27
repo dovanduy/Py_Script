@@ -276,5 +276,5 @@ i = 0
 pos = -2  # 就是要查找的字串的长度
 while i < sub.count("aa"):
     pos = sub.find(s, pos + len(s))
-    print pos
+    print i, '--->', pos
     i += 1

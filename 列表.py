@@ -11,10 +11,6 @@ print li
 # x = li.index(4)
 # print x
 
-# li = "cheng zheng is ge hao haizi"
-# sub = "is"
-# print li.find(sub)
-
 # # ------------------s = "aa bb cc aa dd ee aa ff"-------------------------------------------------------------
 # # 1、求有多少个aa,其位置
 # s = "aa bb cc aa dd ee aa ff"
